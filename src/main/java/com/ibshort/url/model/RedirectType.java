@@ -32,7 +32,6 @@ public enum RedirectType {
             }
         }
 
-        // TODO: throw custom exception
         throw new IllegalArgumentException("Unknown enum type");
     }
 }

@@ -39,8 +39,6 @@ public class UrlController {
         // Map to domain models
         Url url = UrlMapper.INSTANCE.urlRegisterDtoToUrl(registerDto);
 
-        registerDto.getRedirectType();
-
         // Persist
         urlService.Save(url, securityService.findLoggedInUsername());
 
@@ -61,8 +59,6 @@ public class UrlController {
 
         // Redirect user
         httpServletResponse.setHeader("Location", url.getOriginalUrl());
-
-        // TODO: There ust be better way of mapping enums
         httpServletResponse.setStatus(url.getRedirectType().getStatusCode());
     }
 
