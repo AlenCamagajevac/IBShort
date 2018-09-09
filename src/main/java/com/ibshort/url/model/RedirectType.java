@@ -25,14 +25,13 @@ public enum RedirectType {
     }
 
     @JsonCreator
-    public static RedirectType fromValue(int value) {
+    public static RedirectType fromValue(int value) throws IllegalArgumentException {
         for (RedirectType redirectType : values()) {
             if(redirectType.statusCode == value) {
                 return redirectType;
             }
         }
 
-        // TODO: throw custom exception
         throw new IllegalArgumentException("Unknown enum type");
     }
 }
