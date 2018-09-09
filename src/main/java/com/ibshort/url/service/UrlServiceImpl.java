@@ -24,6 +24,7 @@ public class UrlServiceImpl implements UrlService {
         url.setCreatorId(creatorId);
 
         // Persist
+        // TODO: Maybe set original url to unique.
         urlRepository.save(url);
     }
 

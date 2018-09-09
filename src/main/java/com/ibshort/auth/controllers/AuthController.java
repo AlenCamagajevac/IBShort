@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
+
 @Controller
 public class AuthController {
 
@@ -24,7 +26,7 @@ public class AuthController {
     private SecurityService securityService;
 
     @RequestMapping(value = "/account", method = RequestMethod.POST)
-    public ResponseEntity<UserCreatedDto> registerAccount(@RequestBody UserCreateDto createDto) {
+    public ResponseEntity<UserCreatedDto> registerAccount(@RequestBody @Valid UserCreateDto createDto) {
 
         // Map dto to domain model
         User user = UserMapper.INSTANCE.userCreateDtoToUser(createDto);

@@ -1,11 +1,16 @@
 package com.ibshort.url.dto;
 
 import com.ibshort.url.model.RedirectType;
+import com.ibshort.url.validator.CorrectRedirectType;
+
+import javax.validation.constraints.NotNull;
 
 public class UrlRegisterDto {
 
+    @NotNull(message = "Please provide url")
     private String url;
 
+    @CorrectRedirectType
     private int redirectType;
 
     public String getUrl() {
